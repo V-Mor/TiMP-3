@@ -18,16 +18,21 @@ int main()
 void Qsort(int *nach, int *kon)
 {
 	int *l = nach, *r = kon, *opor;
-	int length = (kon - nach) / sizeof(int);
-	opor = nach + sizeof(int) * (abs(length / 2));
+	int length = (kon - nach) + 1;
+	opor = nach + (abs(length / 2));
 	while (l <= r)
 	{
 		while (*l < *opor)
 			l++;
 		while (*r > *opor)
 			r--;
-		if (l < r)
+		if (l <= r)
+		{
 			swap(*l, *r);
+			r--;
+			l++;
+		}
+
 	}
 	if (l < kon)
 		Qsort(l, kon);
