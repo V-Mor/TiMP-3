@@ -5,7 +5,13 @@ int* MergeSort(int*, int*);
 
 int main()
 {
-	cout << sizeof(int) << endl;
+	int *mass = new int[10];
+	for (int i = 0; i <= 9; i++)
+		cin >> mass[i];
+	mass = MergeSort(mass, &(mass[9]));
+	for (int i = 0; i <= 9; i++)
+		cout << mass[i] << " ";
+	cout << endl;
 	return 0;
 
 }
@@ -45,7 +51,7 @@ int* MergeSort(int* nach, int* kon)
 	}
 	if (length == 2)
 	{
-		if (*nach < *kon)
+		if (*nach > *kon)
 			swap(*nach, *kon);
 		return nach;
 	}
@@ -61,6 +67,7 @@ int* MergeSort(int* nach, int* kon)
 				tempMass[count] = *x;
 				count++;
 				x++;
+				continue;
 			}
 		}
 		else
@@ -78,6 +85,7 @@ int* MergeSort(int* nach, int* kon)
 				tempMass[count] = *y;
 				count++;
 				y++;
+				continue;
 			}
 		}
 		else
@@ -89,12 +97,10 @@ int* MergeSort(int* nach, int* kon)
 				continue;
 			}
 	}
-	for (int *i = nach; i <= kon; i++)
+	for (int *i = nach, j = 0; i <= kon, j <= length - 1; i++, j++)
 	{
-		*i = *tempMass;
-		tempMass++;
+		*i = tempMass[j];
 	}
+	delete[] tempMass;
 	return nach;
-
-
 }
