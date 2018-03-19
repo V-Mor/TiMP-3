@@ -51,33 +51,50 @@ int* MergeSort(int* nach, int* kon)
 	}
 	int* tempMass = new int[length];
 	int count = 0;
-	for (int *i = MergeSort(nach, opor - 1); i <= opor; i++)
+	int *x = MergeSort(nach, opor - 1), *y = MergeSort(opor, kon);
+	while (count < length)
 	{
-		for (int *j = MergeSort((opor), kon); j <= kon; j++)
+		if (x <= opor - 1)
 		{
-			if (*i < *j)
+			if (*x <= *y)
 			{
-				tempMass[count] = *i;
+				tempMass[count] = *x;
 				count++;
-				if (i == opor)
-					for (int *k = j; k <= kon; k++)
-					{
-						tempMass[count] = *k;
-						count++;
-					}
-				break;
+				x++;
 			}
-			if (*j < *i)
-			{
-				tempMass[count] = *j;
-				count++;
-			}
-			
 		}
-		if (count == length)
-			break;
+		else
+			if (y <= kon)
+			{
+				tempMass[count] = *y;
+				count++;
+				y++;
+				continue;
+			}
+		if (y <= kon)
+		{
+			if(*y <= *x)
+			{
+				tempMass[count] = *y;
+				count++;
+				y++;
+			}
+		}
+		else
+			if (x <= opor - 1)
+			{
+				tempMass[count] = *x;
+				count++;
+				x++;
+				continue;
+			}
 	}
-	return tempMass;
+	for (int *i = nach; i <= kon; i++)
+	{
+		*i = *tempMass;
+		tempMass++;
+	}
+	return nach;
 
 
 }
