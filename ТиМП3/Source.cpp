@@ -2,14 +2,14 @@
 using namespace std;
 void Qsort(int*, int*);
 int* MergeSort(int*, int*);
-void SchellSort(int*, int*);
+void ShellSort(int*, int*);
 
 int main()
 {
 	int *mass = new int[5];
 	for (int i = 0; i <= 4; i++)
 		cin >> mass[i];
-	SchellSort(mass, &(mass[4]));
+	ShellSort(mass, &(mass[4]));
 	for (int i = 0; i <= 4; i++)
 		cout << mass[i] << " ";
 	cout << endl;
@@ -17,7 +17,7 @@ int main()
 
 }
 
-void SchellSort(int *nach, int *kon)
+void ShellSort(int *nach, int *kon)
 {
 	int *x1, *x2;
 	int length = (kon - nach) + 1;
