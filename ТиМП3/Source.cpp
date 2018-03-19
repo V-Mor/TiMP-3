@@ -2,18 +2,46 @@
 using namespace std;
 void Qsort(int*, int*);
 int* MergeSort(int*, int*);
+void SchellSort(int*, int*);
 
 int main()
 {
-	int *mass = new int[10];
-	for (int i = 0; i <= 9; i++)
+	int *mass = new int[5];
+	for (int i = 0; i <= 4; i++)
 		cin >> mass[i];
-	mass = MergeSort(mass, &(mass[9]));
-	for (int i = 0; i <= 9; i++)
+	SchellSort(mass, &(mass[4]));
+	for (int i = 0; i <= 4; i++)
 		cout << mass[i] << " ";
 	cout << endl;
 	return 0;
 
+}
+
+void SchellSort(int *nach, int *kon)
+{
+	int *x1, *x2;
+	int length = (kon - nach) + 1;
+	int i = 1, D, j, s;
+	int d[8] = {1, 4, 10, 23, 57, 132, 301, 701};
+	for (i = 0; i <= 7; i++)                        // Выбор шага
+	{
+		if (length < d[i])
+		{
+			s = i - 1;
+			break;
+		}
+	};
+	for (j = s; j >= 0; j--)
+	{
+		D = d[j];
+		for (i = 0; i < (length - D); i++)
+		{
+			x1 = nach + i;
+			x2 = nach + D + i;
+			if (*x1 > *x2)
+				swap(*x1, *x2);
+		};
+	}
 }
 
 void Qsort(int *nach, int *kon)
