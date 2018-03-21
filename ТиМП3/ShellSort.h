@@ -3,11 +3,13 @@ class ShellSorter : public Sorter<T>
 {
 public:
 	T* Sort(T*, T*);
+	ShellSorter() : Sorter() {};
 };
 
 template<typename T>
 T* ShellSorter<T>::Sort(T* nach, T* kon)
 {
+	startTime = clock();
 	T *x1, *x2, *m;
 	int length = (kon - nach) + 1;
 	bool swapped = true;
@@ -37,11 +39,14 @@ T* ShellSorter<T>::Sort(T* nach, T* kon)
 					if (*x1 > *x2)
 					{
 						swap(*x1, *x2);
+						numChanges++;
+						numComp++;
 						swapped = true;
 					}
 				}
 			}
 		}
 	};
+	finishTime = clock();
 	return nach;
 }

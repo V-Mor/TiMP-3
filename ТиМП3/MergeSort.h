@@ -3,21 +3,33 @@ class MergeSorter : public Sorter<T>
 {
 public:
 	T* Sort(T*, T*);
+	MergeSorter() : Sorter() {};
 };
 
 template<typename T>
 T* MergeSorter<T>::Sort(T* nach, T* kon)
 {
+	if (!started)
+	{
+		started = true;
+		startTime = clock();
+	}
 	int length = (kon - nach) + 1;
 	T *opor = nach + (abs(length / 2));
 	if (length == 1)
 	{
+		finishTime = clock();
 		return nach;
 	}
 	if (length == 2)
 	{
 		if (*nach > *kon)
+		{
 			swap(*nach, *kon);
+			numComp++;
+			numChanges++;
+		}
+		finishTime = clock();
 		return nach;
 	}
 	T* tempMass = new T[length];
@@ -32,6 +44,8 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 				tempMass[count] = *x;
 				count++;
 				x++;
+				numComp++;
+				numChanges++;
 				continue;
 			}
 		}
@@ -41,6 +55,7 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 				tempMass[count] = *y;
 				count++;
 				y++;
+				numChanges++;
 				continue;
 			}
 		if (y <= kon)
@@ -50,6 +65,8 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 				tempMass[count] = *y;
 				count++;
 				y++;
+				numComp++;
+				numChanges++;
 				continue;
 			}
 		}
@@ -59,13 +76,15 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 				tempMass[count] = *x;
 				count++;
 				x++;
+				numChanges++;
 				continue;
 			}
 	}
-	for (int *i = nach, j = 0; i <= kon, j <= length - 1; i++, j++)
+	for (T *i = nach, j = 0; i <= kon, j <= length - 1; i++, j++)
 	{
 		*i = tempMass[j];
 	}
 	delete[] tempMass;
+	finishTime = clock();
 	return nach;
 }
