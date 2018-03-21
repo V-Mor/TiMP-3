@@ -7,12 +7,12 @@ using namespace std;
 
 int main()
 {
-	int *mass = new int[5];
-	for (int i = 0; i <= 4; i++)
+	char *mass = new char[10];
+	for (int i = 0; i <= 9; i++)
 		cin >> mass[i];
-	ShellSorter<int> sorter1;
-	sorter1.Sort(mass, &(mass[4]));
-	for (int i = 0; i <= 4; i++)
+	ShellSorter<char> sorter1;
+	sorter1.Sort(mass, &(mass[9]));
+	for (int i = 0; i <= 9; i++)
 		cout << mass[i] << " ";
 	cout << endl;
 	return 0;

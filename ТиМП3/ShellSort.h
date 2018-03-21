@@ -8,9 +8,10 @@ public:
 template<typename T>
 T* ShellSorter<T>::Sort(T* nach, T* kon)
 {
-	T *x1, *x2;
+	T *x1, *x2, *m;
 	int length = (kon - nach) + 1;
-	int i = 1, D, j, s;
+	bool swapped = true;
+	int i, D, j, s;
 	int d[8] = { 1, 4, 10, 23, 57, 132, 301, 701 };
 	for (i = 0; i <= 7; i++)
 	{
@@ -23,13 +24,24 @@ T* ShellSorter<T>::Sort(T* nach, T* kon)
 	for (j = s; j >= 0; j--)
 	{
 		D = d[j];
+		swapped = true;
 		for (i = 0; i < (length - D); i++)
 		{
-			x1 = nach + i;
-			x2 = nach + D + i - 1;
-			if (*x1 > *x2)
-				swap(*x1, *x2);
-		};
-	}
+			while (swapped == true)
+			{
+				swapped = false;
+				for (m = nach; m <= (kon-D); m += D)
+				{
+					x1 = m + i;
+					x2 = m + D + i;
+					if (*x1 > *x2)
+					{
+						swap(*x1, *x2);
+						swapped = true;
+					}
+				}
+			}
+		}
+	};
 	return nach;
 }
