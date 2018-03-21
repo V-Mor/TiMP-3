@@ -1,12 +1,11 @@
 ﻿  Source.cpp
-d:\visual studio 2015\projects\тимп3\тимп3\source.cpp(12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-d:\visual studio 2015\projects\тимп3\тимп3\shellsort.h(14): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
-  d:\visual studio 2015\projects\тимп3\тимп3\shellsort.h(11): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
-  d:\visual studio 2015\projects\тимп3\тимп3\source.cpp(55): note: см. ссылку на создание экземпляров функции шаблон при компиляции "int *ShellSorter<int>::Sort(T *,T *)"
+d:\visual studio 2015\projects\тимп3\тимп3\mergesort.h(17): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+  d:\visual studio 2015\projects\тимп3\тимп3\mergesort.h(11): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  d:\visual studio 2015\projects\тимп3\тимп3\source.cpp(22): note: см. ссылку на создание экземпляров функции шаблон при компиляции "int *MergeSorter<int>::Sort(T *,T *)"
           with
           [
               T=int
           ]
-  d:\visual studio 2015\projects\тимп3\тимп3\source.cpp(21): note: см. ссылку на создание экземпляров класса шаблон при компиляции "ShellSorter<int>"
+  d:\visual studio 2015\projects\тимп3\тимп3\source.cpp(13): note: см. ссылку на создание экземпляров класса шаблон при компиляции "MergeSorter<int>"
   ТиМП3.vcxproj -> D:\Visual Studio 2015\Projects\ТиМП3\x64\Debug\ТиМП3.exe
   ТиМП3.vcxproj -> D:\Visual Studio 2015\Projects\ТиМП3\x64\Debug\ТиМП3.pdb (Full PDB)

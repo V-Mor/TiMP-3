@@ -29,6 +29,8 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 			numComp++;
 			numChanges++;
 		}
+		else
+			numComp++;
 		finishTime = clock();
 		return nach;
 	}
@@ -48,6 +50,8 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 				numChanges++;
 				continue;
 			}
+			else
+				numComp++;
 		}
 		else
 			if (y <= kon)
@@ -69,6 +73,8 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 				numChanges++;
 				continue;
 			}
+			else
+				numComp++;
 		}
 		else
 			if (x <= opor - 1)

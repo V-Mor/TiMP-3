@@ -43,6 +43,8 @@ T* ShellSorter<T>::Sort(T* nach, T* kon)
 						numComp++;
 						swapped = true;
 					}
+					else
+						numComp++;
 				}
 			}
 		}

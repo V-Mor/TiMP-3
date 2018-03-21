@@ -17,6 +17,7 @@ T* QuickSorter<T>::Sort(T* nach, T* kon)
 	T *l = nach, *r = kon, *opor;
 	int length = (kon - nach) + 1;
 	opor = nach + (abs(length / 2));
+	//cout << *opor << endl;
 	while (l <= r)
 	{
 		while (*l < *opor)
@@ -24,11 +25,13 @@ T* QuickSorter<T>::Sort(T* nach, T* kon)
 			l++;
 			numComp++;
 		}
+		numComp++;
 		while (*r > *opor)
 		{
 			r--;
 			numComp++;
 		}
+		numComp++;
 		if (l <= r)
 		{
 			swap(*l, *r);
