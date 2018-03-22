@@ -9,23 +9,19 @@ using namespace std;
 
 int main()
 {
-	int mass[1000], mass1[1000];
-	MergeSorter<int> sort1;
-	for (int i = 0, j = 0; i <= 499, j <= 998; i++, j += 2)
-	{
-		mass[j] = 999 - i;
-		mass[j + 1] = i;
-	}
-	for (int i = 0; i <= 999; i++)
-		mass1[i] = 999 - i;
-
-	sort1.Sort(mass, &(mass[999]));
+	/*int mass[100], mass1[100];
+	ShellSorter<int> sort1;
+	for (int i = 0; i <= 99; ++i)
+		mass[i] = i;
+	for (int i = 0; i <= 99; ++i)
+		mass1[i] = 99 - i;
+	sort1.Sort(mass, &(mass[99]));
 	cout << sort1.getWorkTime() << "	" << sort1.getNumChanges() << "	" << sort1.getNumComp() << endl;
 	sort1.cancel();
-	sort1.Sort(mass1, &(mass1[999]));
-	cout << sort1.getWorkTime() << "	" << sort1.getNumChanges() << "	" << sort1.getNumComp() << endl;
+	sort1.Sort(mass1, &(mass1[99]));
+	cout << sort1.getWorkTime() << "	" << sort1.getNumChanges() << "	" << sort1.getNumComp() << endl;*/
 
-	/*srand(time(NULL));
+	srand(time(NULL));
 
 
 	int arr1[1], arr2[2], arr3[3], arr4[4], arr5[5], arr6[10], arr7[15], arr8[20], arr9[25], 
@@ -137,7 +133,7 @@ int main()
 		cout << (((double)results[i][1]) / 100) << "	";
 		cout << (((double)results[i][2]) / 100) << "	";
 		cout << endl;
-	}*/
+	}
 
-
+	return 0;
 }
