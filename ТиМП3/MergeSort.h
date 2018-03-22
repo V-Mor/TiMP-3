@@ -9,19 +9,25 @@ public:
 template<typename T>
 T* MergeSorter<T>::Sort(T* nach, T* kon)
 {
-	if (!started)
+
+
+	if (!started)									//Фиксация времени входа в функцию
 	{
 		started = true;
 		startTime = clock();
 	}
+
+
 	int length = (kon - nach) + 1;
 	T *opor = nach + (abs(length / 2));
-	if (length == 1)
+	if (length == 1)								//Если в массиве один элемент, возвратить его неизменным и 
+													//зафиксировать время
 	{
 		finishTime = clock();
 		return nach;
 	}
-	if (length == 2)
+	if (length == 2)								//Пару элементо проще обменять местами, чем перезаписать в 
+													//новый массив
 	{
 		if (*nach > *kon)
 		{
@@ -34,7 +40,7 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 		finishTime = clock();
 		return nach;
 	}
-	T* tempMass = new T[length];
+	T* tempMass = new T[length];					//Временный массив для хранения новой последовательности
 	int count = 0;
 	T *x = Sort(nach, opor - 1), *y = Sort(opor, kon);
 	while (count < length)
@@ -54,7 +60,8 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 				numComp++;
 		}
 		else
-			if (y <= kon)
+			if (y <= kon)							//Дописываются остальные элементы без сравнения, т.к. второй массив
+													//закончился
 			{
 				tempMass[count] = *y;
 				count++;
@@ -77,7 +84,8 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 				numComp++;
 		}
 		else
-			if (x <= opor - 1)
+			if (x <= opor - 1)						//Дописываются остальные элементы без сравнения, т.к. первый массив
+													//закончился
 			{
 				tempMass[count] = *x;
 				count++;
@@ -90,7 +98,11 @@ T* MergeSorter<T>::Sort(T* nach, T* kon)
 	{
 		*i = tempMass[j];
 	}
-	delete[] tempMass;
-	finishTime = clock();
+	delete[] tempMass;								//Освобождение памяти
+
+
+	finishTime = clock();							//Фиксация времени выхода из функции
+
+
 	return nach;
 }

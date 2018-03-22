@@ -9,7 +9,8 @@ public:
 	int getNumComp() { return numComp; }
 	int getNumChanges() { return numChanges; }
 	int getWorkTime() { return (finishTime - startTime); }
-	void cancel()
+
+	void cancel()	//"Сброс" параметров статистики
 	{
 		started = false;
 		startTime = 0;

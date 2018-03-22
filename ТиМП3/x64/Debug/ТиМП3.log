@@ -1,6 +1,6 @@
 ﻿  Source.cpp
 d:\visual studio 2015\projects\тимп3\тимп3\source.cpp(24): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-d:\visual studio 2015\projects\тимп3\тимп3\mergesort.h(17): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+d:\visual studio 2015\projects\тимп3\тимп3\mergesort.h(21): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
   d:\visual studio 2015\projects\тимп3\тимп3\mergesort.h(11): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
   d:\visual studio 2015\projects\тимп3\тимп3\source.cpp(67): note: см. ссылку на создание экземпляров функции шаблон при компиляции "int *MergeSorter<int>::Sort(T *,T *)"
           with

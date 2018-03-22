@@ -9,13 +9,18 @@ public:
 template<typename T>
 T* ShellSorter<T>::Sort(T* nach, T* kon)
 {
-	startTime = clock();
+
+
+	startTime = clock();								//Фиксация времени входа в функцию (неп роверяется на 
+														//повторный вход т.к. нет рекурсии)
+
+
 	T *x1, *x2, *m;
 	int length = (kon - nach) + 1;
-	bool swapped = true;
+	bool swapped = true;								//Признак произошедшего обмена
 	int i, D, j, s;
-	int d[8] = { 1, 4, 10, 23, 57, 132, 301, 701 };
-	for (i = 0; i <= 7; i++)
+	int d[8] = { 1, 4, 10, 23, 57, 132, 301, 701 };		//Массив шагов
+	for (i = 0; i <= 7; i++)							//Выбор шага
 	{
 		if (length < d[i])
 		{
@@ -23,11 +28,11 @@ T* ShellSorter<T>::Sort(T* nach, T* kon)
 			break;
 		}
 	};
-	for (j = s; j >= 0; j--)
+	for (j = s; j >= 0; j--)							//Счётчик шага
 	{
 		D = d[j];
 		swapped = true;
-		for (i = 0; i < (length - D); i++)
+		for (i = 0; i < (length - D); i++)				//Счётчик смещения
 		{
 			while (swapped == true)
 			{
@@ -45,10 +50,18 @@ T* ShellSorter<T>::Sort(T* nach, T* kon)
 					}
 					else
 						numComp++;
-				}
-			}
-		}
-	};
-	finishTime = clock();
+
+				}	//for (m = nach; m <= (kon-D); m += D)
+
+			}	//while (swapped == true)
+
+		}	//for (i = 0; i < (length - D); i++) – счётчик смещения
+
+	}	//for (j = s; j >= 0; j--) – счёчик шага
+
+
+	finishTime = clock();									//Фиксация времени выхода из функции
+
+
 	return nach;
 }
